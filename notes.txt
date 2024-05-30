@@ -1,0 +1,49 @@
+TODO
+finish tokenization algorithm
+   need to make it output a vector of integers
+transfomer neural network architecture
+
+
+
+
+ALGORITHM STRUCTURE
+
+-tokenizers convert string to integers
+
+-single embeding layer convert tokens and there posiitions into vector embeddings
+
+-transformer layers carry out transformation on the vector extracting more layers than passing information foward
+
+-unembedding layer to decode output
+
+https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)
+ 
+ TOKENIZATION ALGORITHM
+ need to break down strings into words(turn and turn everything to lower)
+
+ create a class that can be called for the vocabulary(initially needs to just store characters)
+    than find repeating most repeating characters and convert them into tokens(integers)
+
+//
+def tokenizer(test_input):
+    #needs to convert from upper to lower
+    test_input = test_input
+    temp_string = []
+    count = 0
+    for char in test_input:
+        if(char.isalpha()):
+            if(char.isupper()):
+                char = char.lower()
+            temp_string.append(char)
+            item = char
+            exist = False
+            if item in vocab:
+                exist = True
+            elif(exist == False):
+                vocab.append(vocab_item(char))
+                vocab[-1].count += 1
+        elif():
+            if(temp_string):
+                words.append(temp_string)
+                temp_string = ""
+    
