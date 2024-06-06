@@ -1,35 +1,31 @@
-import { json } from "stream/consumers";
-
 
 const button = document.getElementById('enter') as HTMLButtonElement
-button.addEventListener('click', main)
+button.textContent = 'enter';
 const textContent = document.getElementById('textbox') as HTMLTextAreaElement;
 
 
 //pass to the back end to process
 //store what the user entered and the response and store that in the database
 
+const send_data = {
+message: textContent.value
+}
+
 
 function main()
 {
-    if(textContent != null)
+if(textContent.value != null)
     {
-        //send data
-        //take in response and set to variable send back to user
-        //store in database
+        const url = "http://localhost:3000/api"
 
-        //need to setup python(or whatever the desired programming language is ) http server to recieve the data and than transform it
-        //can also handle the data and everything
-
-        const userInput = textContent.value;
-        const data = {
-            userInput: userInput
-        };
-        fetch{
-            //python http server
-        }
-
-
+        fetch (url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(send_data)
+        })
 
     }
 }
+button.addEventListener('click', main)
